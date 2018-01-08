@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    <servlet>
+        <servlet-name>Test</servlet-name>
+        <servlet-class>Test</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Test</servlet-name>
+        <url-pattern>/Test</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateDT</servlet-name>
+        <servlet-class>UpdateDT</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>UpdateDT</servlet-name>
+        <url-pattern> /UpdateDT</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>IPGet</servlet-name>
+        <servlet-class>IPGet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>IPGet</servlet-name>
+        <url-pattern>/IPGet</url-pattern>
+    </servlet-mapping>
+
+</web-app>

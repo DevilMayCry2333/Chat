@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>欢迎来到一个智能聊天系统</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script type="text/javascript" src="js/jquery.js"> </script>
+    <script type="text/javascript">
+        // $(document).ready(function(){
+        // document.getElementById('btn').onclick=function(){};
+        // function onclik1(){
+        //
+        // }
+
+        //adding your code here　　
+        // });
+        // });
+        window.onload = function(){
+            var arrIcon = ['./img/index.JPG','./img/index2.JPG'];
+            var num = 0;
+            var iNow = -1;
+            var icon = document.getElementById('user_face_icon').getElementsByTagName('img');
+            var btn = document.getElementById('btn');
+            var text = document.getElementById('text');
+            var content = document.getElementsByTagName('ul')[0];
+            var img = content.getElementsByTagName('img');
+            var span = content.getElementsByTagName('span');
+            var sw = "abc";
+            alert("欢迎来到智能聊天系统，请看左下方的说明再愉快地使用吧~");
+
+            $("#btn").css({background:"#1991f5"});
+
+            icon[0].onclick = function(){
+                if(num==0){
+                    this.src = arrIcon[1];
+                    num = 1;
+                }else if(num==1){
+                    this.src = arrIcon[0];
+                    num = 0;
+                }
+            }
+            btn.onmouseover = function () {
+                $("#btn").css({color:"#000000"});
+            };
+            btn.onmouseout = function () {
+                $("#btn").css({color:"#fff"});
+            }
+            btn.onclick = function a(){
+                console.log($("#text").val().toString());
+                if($("#text").val().indexOf("]") >= 0 || $("#text").val().indexOf(";") >= 0) {
+                   sw = parseInt(2);
+                }
+
+                console.log(sw);
+                console.log(isNaN(sw));
+                // console.log(isNaN(sw));
+
+                if(isNaN(sw) === true ) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/chatr/Test",
+                        data: "ChatK=" + $("#text").val().toString(),
+                        beforeSend: function () {
+                            $("#text").attr({disabled:"disabled"});
+                            $("#btn").css({background:"#A3A3A3"},{color:"#000"});
+                        },
+                        success: function (data) {
+                            // alert(data);
+                            content.innerHTML += '<li id="text4" class="text4"><img id="text2" class="text2" src="' + arrIcon[num] + '"><span id="send" class="send">' + data.toString() + '</span></li>';
+
+
+
+                            iNow++;
+                            if (num == 0) {
+                                img[iNow].className += 'imgright';
+                                span[iNow].className += 'spanright';
+                            } else {
+                                img[iNow].className += 'imgleft';
+                                span[iNow].className += 'spanleft';
+                            }
+                            text.value = '';
+                            content.scrollTop = content.scrollHeight;
+                            // alert($("#text").val().toString());
+                        },
+                        complete: function () {
+                            $("#btn").css({background:"#1991f5"},{color:"#fff"});
+                            $("#text").removeAttr("disabled");
+
+                        },
+                        error: function () {
+                            alert("error");
+                            alert(text.toString());
+                            alert(data.toString());
+                            // alert($("#text").val().toString());
+                        }
+                    });
+                }else if(isNaN(sw) === false){
+                    sw = "abc";
+                    $.ajax({
+                        type: "POST",
+                        url: "/chatr/UpdateDT",
+                        beforeSend: function () {
+                            $("#text").attr({disabled:"disabled"});
+
+                        },
+                        data: "Chat=" + $("#text").val().toString(),
+                        success: function (data) {
+                            // alert(data);
+                            content.innerHTML += '<li id="text4" class="text4"><img id="text2" class="text2" src="' + arrIcon[num] + '"><span id="send" class="send">' + data.toString() + '</span></li>';
+                            iNow++;
+                            if (num == 0) {
+                                img[iNow].className += 'imgright';
+                                span[iNow].className += 'spanright';
+                            } else {
+                                img[iNow].className += 'imgleft';
+                                span[iNow].className += 'spanleft';
+                            }
+                            text.value = '';
+                            content.scrollTop = content.scrollHeight;
+                        },
+                        complete: function () {
+                            $("#text").removeAttr("disabled");
+                        },
+                        error: function () {
+                            alert("error");
+                        }
+                    });
+
+                }
+                    if (text.value == '') {
+                        alert('输入不能为空');
+                    } else {
+
+
+                        content.innerHTML += '<li><img src="' + arrIcon[(num + 1) % 2] + '"><span>' + text.value + '</span></li>';
+                        // alert("正在等待");
+                        iNow++;
+                        if (num == 0) {
+                            img[iNow].className += 'imgright';
+                            span[iNow].className += 'spanright';
+                        } else {
+                            img[iNow].className += 'imgleft';
+                            span[iNow].className += 'spanleft';
+                        }
+                        text.value = '';
+                        content.scrollTop = content.scrollHeight;
+
+
+                        }
+
+                }
+            }
+
+    </script>
+</head>
+<body background="img/ground.png">
+<!--<form action="/Test" method="post">-->
+<!--<input name="ChatK" type="text"> </input>-->
+<!--<input type="submit" onclick="onclik1()"> 提交-->
+
+<!--</form>-->
+
+<div id="container">
+    <div class="header">
+        <span style="float: left;">这是一个智能聊天系统</span>
+    
+        <span id="divT" style="float: right;">14:21</span>
+        <script src="js/real.js"></script>
+
+
+    </div>
+    <ul class="content">
+    </ul>
+    <div class="footer">
+        <div id="user_face_icon">
+            <img src="img/index.JPG" alt="">
+        </div>
+        <input name="text" id="text" type="text" placeholder="输入你想说的话">
+
+        <span id="btn" class="btn" style="color: white">
+                 提交
+                  <!--<input type="submit" onclick="onclik1()">-->
+            </span>
+
+    </div>
+
+
+</div>
+
+<div class="hh">
+    <label>
+        <font color="aqua">
+            用法: 学习指令: 问题,答案<br/>
+            缓存指令: ##问题<br/>
+            更新指令: 问题;答案<br/>
+            删除指令: ]问题<br/>
+        </font>
+        <a href="test.html">测试ip</a>
+    </label>
+</div>
+
+
+</body>
+
+</html>
