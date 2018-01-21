@@ -39,7 +39,7 @@ public class Test extends javax.servlet.http.HttpServlet {
         String text = request.getParameter("ChatK");
         System.out.println(text);
         //图灵机器人的API KEY
-        String APIKEY = "c18bfd1616c64173b6941b26a561f428";
+        String APIKEY = "*****";
 
         //如果有缓存操作
       if (text.contains("##")) {

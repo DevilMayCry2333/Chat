@@ -16,7 +16,7 @@ public class ConnectionTest{
         //注册MySQL JDBC驱动
         Class.forName("com.mysql.jdbc.Driver");
         //创建对数据库的SSL连接
-        Connection cn = DriverManager.getConnection("jdbc:mysql://jokerl.com:3306/Chat_Test?characterEncoding=utf8&useSSL=true","test","YKY12345");
+        Connection cn = DriverManager.getConnection("jdbc:mysql://***.com:3306/","***","***");
         //创建实例
         Statement st = cn.createStatement();
         //正则表达式匹配含有查询操作的。

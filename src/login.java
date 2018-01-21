@@ -39,7 +39,7 @@ public class login extends javax.servlet.http.HttpServlet  {
             //进行注册
             Class.forName("com.mysql.jdbc.Driver");
             //打开连接
-            Connection cn = DriverManager.getConnection("jdbc:mysql://jokerl.com:3306/Chat_Test?characterEncoding=utf8&useSSL=true", "test", "YKY12345");
+            Connection cn = DriverManager.getConnection("jdbc:mysql://***.com/***?characterEncoding=utf8&useSSL=true", "***", "****");
             //创建两个实例化
             Statement st = cn.createStatement();
             Statement st2 = cn.createStatement();
