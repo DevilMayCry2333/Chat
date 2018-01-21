@@ -1,0 +1,205 @@
+body
+{
+    background: url("../img/bg.png") repeat fixed center top;
+    background-color: #e5e5d7;
+    margin:0px;
+}
+.content
+{
+    width:800px;
+    height:auto;
+    display:block;
+    overflow:hidden;
+    margin: 0px auto;
+    background-color: #fff;
+    background-image: url("../img/bg2.gif");
+    padding-top: 20px;
+    padding-bottom: 20px;
+    -moz-box-shadow: 0 2px 2px 2px #888;
+    -webkit-box-shadow: 0 2px 2px 2px #888;
+    box-shadow: 0 2px 2px 2px #888;
+}
+.logo a,.logo img{border:none;}
+.chatroom
+{
+    display: block;
+    overflow: hidden;
+    width:440px;
+    height:auto;
+    float:left;
+    margin-left:20px;
+ 
+
+
+}
+.rightbox h1,.rightbox h2
+{
+    font-size:14px;
+    color:Red;
+    display:inline;
+    clear:none;
+}
+.rightbox {
+float: left;
+width: 320px;
+display: block;
+overflow: hidden;
+margin-top: 50px;
+line-height:32px;
+color: green;
+font-family: Microsoft YaHei;
+font-size:14px;
+}
+#talkbox
+{
+    width: 410px;
+    height: 500px;
+    display: block;
+    overflow: hidden;
+    clear: both;
+    border: 1px solid #888;
+    background-color: #fff;
+    background-image: url("../img/chatroombg.gif");
+    background-repeat: no-repeat;
+    background-position:right bottom;
+}
+.inputroom
+{
+    width:310px;
+    display: block;
+    float: left;
+    overflow: hidden;
+    background-color: #fff;
+}
+.buttomroom
+{
+    width: 119px;
+    display: block;
+    float: left;
+    overflow: hidden;
+}
+.inputroom .text
+{
+    width: 290px;
+    min-width: 290px;
+    max-width: 290px;
+    font-size: 1.25em;
+    text-align: left;
+    background-color: transparent;
+    vertical-align: bottom;
+    border: 1px solid #aaa;
+    padding: 6px 0 4px 5px;
+    color: #5F5F5F;
+}
+#chatbtn
+{
+    width: 98px;
+    height: 35px;
+    display: block;
+    overflow: hidden;
+    border-radius: 10px 10px 10px 10px;
+}
+.g
+{
+    color: Green;
+}
+.b
+{
+    color: blue;
+}
+#liaotian
+{
+    width:410px;
+    height: 500px;
+    display: block;
+    overflow-y: scroll;
+    clear: both;
+}
+.me
+{
+    width: 100%;
+    display: block;
+    clear: both;
+    margin-top: 3px;
+    overflow:hidden;
+}
+.me_msg
+{
+    float: right;
+    color: Blue;
+    width:317px;
+    font-size: 14px;
+    margin-right: 7px;
+    text-align:right;
+    line-height:20px;
+    overflow:hidden;
+}
+.me_img
+{
+    float: right;
+    width: 30%;
+    height: 30%;
+    margin-right: 10px;
+    background: url( '../img/index.JPG' );
+}
+.bot
+{
+    border-bottom: 1px solid #eee;
+    width: 100%;
+    display: block;
+    clear: both;
+    overflow:hidden;
+}
+.bot_img
+{
+    float: left;
+    width: 30%;
+    height: 30%;
+    margin-left: 10px;
+    background: url( '../img/index2.JPG' );
+}
+.bot_msg
+{
+    color: green;
+    font-size: 14px;
+    margin-left: 7px;
+    line-height:20px;
+    width:317px;
+    float:left;
+    overflow:hidden;
+}
+.h
+{
+    display:none;
+}
+.nav
+{
+    width:100%;
+    display:block;
+    clear:both;
+    overflow:hidden;
+    background-color:#eee;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    height:40px;
+    line-height:40px;
+}
+.nav a
+{
+    color:Black;
+    font-size:14px;
+    text-decoration:none;
+}
+.nav a:hover
+{
+    text-decoration:underline;
+    color:Red;
+}
+.div20
+{
+    width:100%;
+    height:20px;
+    display:block;
+    overflow:hidden;
+    clear:both;
+}
