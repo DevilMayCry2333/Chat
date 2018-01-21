@@ -6,16 +6,9 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <script type="text/javascript" src="js/jquery.js"> </script>
     <script type="text/javascript">
-        // $(document).ready(function(){
-        // document.getElementById('btn').onclick=function(){};
-        // function onclik1(){
-        //
-        // }
-
-        //adding your code here　　
-        // });
-        // });
+        //打开窗口的初始化操作
         window.onload = function(){
+            //图标
             var arrIcon = ['./img/index.JPG','./img/index2.JPG'];
             var num = 0;
             var iNow = -1;
@@ -27,7 +20,9 @@
             var span = content.getElementsByTagName('span');
             var sw = "abc";
             alert("欢迎来到智能聊天系统，请看左下方的说明再愉快地使用吧~");
+            alert("====警告！！===\n使用本网站即默认同意我们对您发送的信息拥有审计权限，我们将不会透露信息给第三方，继续下一步即同意协议，否则请关闭本站并离开");
 
+            //设置按钮的颜色
             $("#btn").css({background:"#1991f5"});
 
             icon[0].onclick = function(){
@@ -47,6 +42,7 @@
             }
             btn.onclick = function a(){
                 console.log($("#text").val().toString());
+                //判断向哪个Servlet发送请求
                 if($("#text").val().indexOf("]") >= 0 || $("#text").val().indexOf(";") >= 0) {
                    sw = parseInt(2);
                 }
@@ -188,15 +184,17 @@
 </div>
 
 <div class="hh">
-    <label>
-        <font color="aqua">
+    <label style="color: aqua;">
             用法: 学习指令: 问题,答案<br/>
             缓存指令: ##问题<br/>
             更新指令: 问题;答案<br/>
             删除指令: ]问题<br/>
-        </font>
-        <a href="test.html">测试ip</a>
+
+        <a href="test.html" style="color: red">持续地通知票入口</a>
+
     </label>
+
+
 </div>
 
 

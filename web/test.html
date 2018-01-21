@@ -1,14 +1,27 @@
 <html>
     <head>
         <meta charset="UTF-8"/>
-
+        <title>抢票登录页面</title>
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
         <script type="text/javascript" src="js/jquery.js"> </script>
         <script type="text/javascript">
-            window.onload = function () {
+            function login(){
+                var user = {
+                    user:$("#user").val().toString(),
+                    pass:$("#pass").val().toString(),
+                    date:$("#date").val().toString(),
+                    from:$("#from").val().toString(),
+                    to:$("#to").val().toString(),
+                    addr:$("#addr").val().toString()
+                };
                 $.ajax({
                     type : "POST",
-                    url : "/chatr/IPGet",
-                    data: "Chat=123",
+                    url : "/chatr/login",
+                    data: user,
+                    beforeSend: function () {
+                        alert("成功提交执行！正在等待服务器回应...");
+                    },
+
                     success:function (data) {
                         alert(data);
                     },
@@ -22,6 +35,39 @@
 
     <body>
 
+    <label style="color: #98F5FF">
+        日期
+    </label> <br/>
+    <input type="text" name="date" id="date"/> <br/>
+
+    <label style="color:#98F5FF">
+        起点
+    </label> <br/>
+    <input type="text" name="from" id="from"/> <br/>
+
+    <label style="color:#98F5FF">
+        终点
+    </label> <br/>
+
+    <input type="text" name="to" id="to"/> <br/>
+
+    <label style="color:#98F5FF">
+        邮箱地址
+    </label> <br/>
+
+    <input type="text" name="addr" id="addr"/> <br/>
+
+
+    <label style="color: red">用户名: </label> <br/>
+    <input type="text" name="user" id="user"/> <br/>
+    <label style="color: red">密码: </label> <br/>
+    <input type="password" name="pass" id="pass"> <br/>
+    <br/>
+    <br/>
+    <span class="btn" onclick="login()" style="width: 10%;">
+    <!--<input type="submit" onclick="login()" value="登录 & 提交抢票请求">-->
+        登录 & 提交抢票请求
+    </span>
 
     </body>
 
